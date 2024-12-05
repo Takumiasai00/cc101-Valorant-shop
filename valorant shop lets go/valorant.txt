@@ -1,0 +1,124 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
+    const shopSection = document.getElementById('shop-section');
+    const loginButton = document.getElementById('login-btn');
+    const signupButton = document.getElementById('signup-btn');
+    const loginUsernameInput = document.getElementById('login-username');
+    const loginPasswordInput = document.getElementById('login-password');
+    const signupUsernameInput = document.getElementById('signup-username');
+    const signupPasswordInput = document.getElementById('signup-password');
+    const confirmPasswordInput = document.getElementById('confirm-password');
+    const loginErrorMessage = document.getElementById('login-error-message');
+    const signupErrorMessage = document.getElementById('signup-error-message');
+    const users = [];
+    const cart = [];
+    const cartItems = document.getElementById('cart-items');
+    const totalPriceElem = document.getElementById('total-price');
+    const cartModal = document.getElementById('cart-modal');
+    const viewCartButton = document.getElementById('view-cart');
+    const closeCartButton = document.getElementById('close-cart');
+    const checkoutButton = document.getElementById('checkout-btn');
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    const goToSignup = document.getElementById('go-to-signup');
+    const goToLogin = document.getElementById('go-to-login');
+
+    goToSignup.addEventListener('click', () => {
+        loginForm.style.display = 'none';
+        signupForm.style.display = 'block';
+    });
+
+    goToLogin.addEventListener('click', () => {
+        signupForm.style.display = 'none';
+        loginForm.style.display = 'block';
+    });
+
+    function validateLogin(username, password) {
+        return users.some(user => user.username === username && user.password === password);
+    }
+
+    function validateSignup(username, password, confirmPassword) {
+        if (password !== confirmPassword) {
+            signupErrorMessage.textContent = 'Passwords do not match!';
+            return false;
+        }
+
+        const userExists = users.some(user => user.username === username);
+        if (userExists) {
+            signupErrorMessage.textContent = 'Username already taken!';
+            return false;
+        }
+
+        return true;
+    }
+
+    loginButton.addEventListener('click', function() {
+        const username = loginUsernameInput.value;
+        const password = loginPasswordInput.value;
+
+        if (validateLogin(username, password)) {
+            loginForm.style.display = 'none';
+            shopSection.style.display = 'block';
+        } else {
+            loginErrorMessage.textContent = 'Invalid username or password.';
+        }
+    });
+
+    signupButton.addEventListener('click', function() {
+        const username = signupUsernameInput.value;
+        const password = signupPasswordInput.value;
+        const confirmPassword = confirmPasswordInput.value;
+
+        if (validateSignup(username, password, confirmPassword)) {
+            users.push({ username, password });
+            signupForm.style.display = 'none';
+            loginForm.style.display = 'block';
+        }
+    });
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const skin = e.target.closest('.skin');
+            const skinName = skin.getAttribute('data-name');
+            const skinPrice = parseInt(skin.getAttribute('data-price'));
+            cart.push({ name: skinName, price: skinPrice });
+            updateCart();
+        });
+    });
+
+    function updateCart() {
+        cartItems.innerHTML = '';
+        cart.forEach(item => {
+            const li = document.createElement('li');
+            li.innerText = `${item.name} - ${item.price} VP`;
+            cartItems.appendChild(li);
+        });
+        const total = cart.reduce((sum, item) => sum + item.price, 0);
+        totalPriceElem.innerText = total;
+    }
+
+    viewCartButton.addEventListener('click', function() {
+        cartModal.style.display = 'block';
+    });
+
+    closeCartButton.addEventListener('click', function() {
+        cartModal.style.display = 'none';
+    });
+
+    checkoutButton.addEventListener('click', function() {
+        if (cart.length > 0) {
+            alert('Thank you for your purchase!');
+            cart.length = 0;
+            updateCart();
+            cartModal.style.display = 'none';
+        } else {
+            alert('Your cart is empty!');
+        }
+    });
+
+    window.addEventListener('click', function(e) {
+        if (e.target === cartModal) {
+            cartModal.style.display = 'none';
+        }
+    });
+});

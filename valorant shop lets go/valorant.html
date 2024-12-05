@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant Skin Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <div id="login-form" style="display: block;">
+        <h2>Login to Access the Shop</h2>
+        <input type="text" id="login-username" placeholder="Username" required>
+        <input type="password" id="login-password" placeholder="Password" required>
+        <button id="login-btn">Login</button>
+        <p id="login-error-message" style="color: red;"></p>
+        <p>Don't have an account? <span id="go-to-signup" style="color: #6e1960; cursor: pointer;">Sign Up</span></p>
+    </div>
+
+    <div id="signup-form" style="display: none;">
+        <h2>Create an Account</h2>
+        <input type="text" id="signup-username" placeholder="Username" required>
+        <input type="password" id="signup-password" placeholder="Password" required>
+        <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+        <button id="signup-btn">Sign Up</button>
+        <p id="signup-error-message" style="color: red;"></p>
+        <p>Already have an account? <span id="go-to-login" style="color: #00d1b2; cursor: pointer;">Login</span></p>
+    </div>
+
+
+    <div id="shop-section" style="display: none;">
+        <h1>Welcome to the Valorant Skin Shop</h1>
+        <div class="shop">
+
+            <div class="skin" data-name="Arcane Sheriff" data-price="2377">
+                <img src="https://media.assettype.com/afkgaming%2F2023-06%2F9aefc937-0a85-48cf-8b10-f07237520cbf%2FCover_Image___Is_Arcane_Sheriff_Skin_Available_In_Valorant_In_2023.jpg?auto=format%2Ccompress&dpr=1.0&w=1200" alt="Arcane Sheriff Skin" />
+                <p>Arcane Sheriff</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="skin" data-name="Champions 2024 Phantom" data-price="2675">
+                <img src="https://fbi.cults3d.com/uploaders/21595173/illustration-file/24c9f79e-e58b-4ec4-bde7-360667789c6c/Valorant-Champions-2024.jpg" alt="VCT Champions Phantom" />
+                <p>VCT Champions Phantom</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="skin" data-name="Prime Phantom" data-price="1775">
+                <img src="https://dotesports.com/wp-content/uploads/2023/05/Prime_Phantom-1.jpg?w=640" alt="Prime Phantom" />
+                <p>Prime Phantom</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="skin" data-name="Chronovoid Vandal" data-price="2175">
+                <img src="https://valorantstrike.com/wp-content/uploads/Valorant-Chronovoid-Vandal-Red-Article.jpg" alt="Valorant Spectre Skin" />
+                <p>Valorant Spectre</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="skin" data-name="Reaver Vandal" data-price="1775">
+                <img src="https://valorantstrike.com/wp-content/uploads/2020/10/Valorant-Reaver-Collection-Vandal-HD.jpg" alt="Celestial Vandal" />
+                <p>Celestial Vandal</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="skin" data-name="Reaver Operator" data-price="1775">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8Wll5gCrNJdC_WP_HFBKGqM1KKYPrIXXFDw&s" alt="Reaver Operator" />
+                <p>Reaver Operator</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="skin" data-name="Ion Sheriff" data-price="1775">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbKAw5D_WtTJXvoPcufGfpdZgXy1ClLgr5_Q&s" alt="Valorant Ghost Skin" />
+                <p>Valorant Ghost</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+        </div>
+
+        <div id="cart-modal" style="display: none;">
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <p>Total: <span id="total-price">0</span> VP</p>
+            <button id="checkout-btn">Checkout</button>
+            <button id="close-cart">Close</button>
+        </div>
+
+        <button id="view-cart">View Cart</button>
+    </div>
+    <script src="valorant.js"></script>
+</body>
+</html>
+<link rel="stylesheet" href="valorant.css">
+
+<div class="ad-banner">
+    <p>🚨 New Skins Available! Grab them before they’re gone! 🚨</p>
+</div>

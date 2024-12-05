@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #6e1960, #121212);
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}
+
+#login-form, #signup-form {
+    display: block;
+    text-align: center;
+    padding: 30px;
+    background-color: rgba(41, 44, 52, 0.9);
+    width: 350px;
+    margin: 50px auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid #6e1960;
+}
+
+#login-form input, #signup-form input {
+    margin: 15px 0;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid #6e1960;
+    background-color: #121212;
+    color: white;
+    font-size: 1rem;
+}
+
+#login-form button, #signup-form button {
+    background-color: #6e1960;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+#login-form button:hover, #signup-form button:hover {
+    background-color: #5a1552;
+}
+
+
+#login-error-message, #signup-error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+
+#shop-section {
+    text-align: center;
+    display: none;
+    margin-top: 30px;
+    position: relative;
+    background-color: #292c34;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#shop-section h1 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 2rem;
+    color: #6e1960;
+    font-weight: bold;
+    margin: 0;
+}
+
+.shop {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.skin {
+    background-color: #292c34;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    width: 250px;
+    margin-bottom: 30px;
+}
+
+.skin:hover {
+    transform: scale(1.05);
+}
+
+.skin img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.skin p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+.skin button {
+    background-color: #6e1960;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.skin button:hover {
+    background-color: #5a1552;
+}
+
+
+#cart-modal {
+    display: none;
+    background-color: rgba(41, 44, 52, 0.9);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 300px;
+    margin: 50px auto;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#cart-modal button {
+    background-color: #6e1960;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+#cart-modal button:hover {
+    background-color: #5a1552;
+}
+
+#view-cart {
+    background-color: #6e1960;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+#view-cart:hover {
+    background-color: #5a1552;
+}
+
+
+#close-cart {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#close-cart:hover {
+    color: #6e1960;
+}
+
+
+@media (max-width: 768px) {
+    .shop {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skin {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    #login-form, #signup-form {
+        width: 100%;
+        margin: 20px;
+    }
+
+    #view-cart {
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+    }
+}
+
+
+.ad-banner {
+    background-color: #6e1960;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 250px;
+    width: auto;
+    z-index: 999;
+}
+
+
+.ad-banner:hover {
+    background-color: #9e2c3b; 
+    cursor: pointer;
+}
